@@ -1,5 +1,6 @@
 package com.example.peacemjulecture;
 
+import android.app.Application;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -17,17 +19,16 @@ import com.example.peacemjulecture.databinding.FragmentMenuBinding;
 
 
 public class MenuFragment extends Fragment {
-    FragmentMenuBinding binding = null;
+    private FragmentMenuBinding binding = null;
 
     public MenuFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentMenuBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+         return binding.getRoot();
     }
 
     @Override
@@ -39,6 +40,7 @@ public class MenuFragment extends Fragment {
         finishApplication();
     }
 
+    // 버튼 클릭시 Naver로 이동
     private void openNaverUrl(){
         binding.btnMoveWeb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +52,8 @@ public class MenuFragment extends Fragment {
         });
     }
 
-    void callEmergency() {
+    // 버튼 클릭시 다이얼로 이동하고 119 입력
+    private void callEmergency() {
         binding.btnCall119.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,24 +64,30 @@ public class MenuFragment extends Fragment {
         });
     }
 
-    void openGallery() {
+    // 버튼 클릭시 Gallery앱으로 이동
+    private void openGallery() {
         binding.btnOpenGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-
                 startActivity(intent);
             }
         });
     }
 
-    void finishApplication() {
+    private void finishApplication() {
         binding.btnExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                requireActivity().finish();
+                Navigation.findNavController(binding.getRoot()).navigate(R.id.action_menuFragment_to_secondLectureFragment);
             }
         });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        binding = null;
     }
 
     private static final String NAVER_URL = "https://www.naver.com/";

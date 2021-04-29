@@ -22,7 +22,7 @@ public class SingInActivity extends AppCompatActivity {
         goToMenuActivity();
     }
 
-    void goToMenuActivity() {
+    private void goToMenuActivity() {
         binding.btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

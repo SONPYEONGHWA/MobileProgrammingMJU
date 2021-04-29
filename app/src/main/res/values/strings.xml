@@ -2,4 +2,7 @@
     <string name="app_name">PeaceMjuLecture</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="introduce_peace"> Hello, My name is PyeongHwaSon. I\'m studying at MyongJi University.
+
+    </string>
 </resources>
