@@ -10,4 +10,6 @@
     <color name="yellow">#FFD27E</color>
     <color name="red">#FF9C8B</color>
     <color name="sky_blue">#94E6FF</color>
+    <color name="peace_blue">#5f86f1</color>
+    <color name="peace_yellow">#fff5db</color>
 </resources>

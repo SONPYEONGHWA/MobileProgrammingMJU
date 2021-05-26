@@ -28,7 +28,7 @@ public class MenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentMenuBinding.inflate(inflater, container, false);
-         return binding.getRoot();
+        return binding.getRoot();
     }
 
     @Override
@@ -85,9 +85,9 @@ public class MenuFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
         binding = null;
+        super.onDestroyView();
     }
 
     private static final String NAVER_URL = "https://www.naver.com/";
