@@ -1,13 +1,12 @@
-package com.example.peacemjulecture;
+package com.example.peacemjulecture.signin;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewbinding.ViewBinding;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 
+import com.example.peacemjulecture.main.MainActivity;
 import com.example.peacemjulecture.databinding.ActivitySigninBinding;
 
 public class SingInActivity extends AppCompatActivity {

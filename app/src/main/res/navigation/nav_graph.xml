@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.peacemjulecture.MenuFragment"
+        android:name="com.example.peacemjulecture.menu.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -16,12 +16,12 @@
     </fragment>
     <fragment
         android:id="@+id/secondLectureFragment"
-        android:name="com.example.peacemjulecture.SecondLectureFragment"
+        android:name="com.example.peacemjulecture.secondlecture.SecondLectureFragment"
         android:label="fragment_second_lecture"
         tools:layout="@layout/fragment_second_lecture" />
     <fragment
         android:id="@+id/calculatorFragment"
-        android:name="com.example.peacemjulecture.CalculatorFragment"
+        android:name="com.example.peacemjulecture.calculator.CalculatorFragment"
         android:label="CalculatorFragment"
         tools:layout="@layout/fragment_calculator"/>
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.peacemjulecture;
+package com.example.peacemjulecture.util;
 
 import android.text.TextUtils;
 import android.widget.EditText;
@@ -19,7 +19,7 @@ public class InputChecker {
 
 
     public static InputChecker getInstance() {
-        if (inputChecker ==null) {
+        if (inputChecker == null) {
             inputChecker = new InputChecker();
         }
         return inputChecker;

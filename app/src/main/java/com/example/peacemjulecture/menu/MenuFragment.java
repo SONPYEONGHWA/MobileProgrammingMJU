@@ -1,4 +1,4 @@
-package com.example.peacemjulecture;
+package com.example.peacemjulecture.menu;
 
 import android.app.Application;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.peacemjulecture.R;
 import com.example.peacemjulecture.databinding.FragmentMenuBinding;
 
 

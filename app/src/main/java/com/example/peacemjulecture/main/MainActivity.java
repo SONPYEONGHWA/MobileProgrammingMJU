@@ -1,13 +1,11 @@
-package com.example.peacemjulecture;
+package com.example.peacemjulecture.main;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
 
+import com.example.peacemjulecture.R;
 import com.example.peacemjulecture.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
