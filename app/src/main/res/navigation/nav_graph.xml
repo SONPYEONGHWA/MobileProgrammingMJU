@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/calculatorFragment">
+    app:startDestination="@id/picturesFragment">
 
     <fragment
         android:id="@+id/menuFragment"
@@ -24,4 +24,9 @@
         android:name="com.example.peacemjulecture.calculator.CalculatorFragment"
         android:label="CalculatorFragment"
         tools:layout="@layout/fragment_calculator"/>
+    <fragment
+        android:id="@+id/picturesFragment"
+        android:name="com.example.peacemjulecture.picture.PicturesFragment"
+        android:label="PicturesFragment"
+        tools:layout="@layout/fragment_pictures"/>
 </navigation>
