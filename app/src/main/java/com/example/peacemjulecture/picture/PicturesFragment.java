@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.peacemjulecture.R;
 import com.example.peacemjulecture.databinding.FragmentPicturesBinding;
@@ -17,6 +18,7 @@ import com.example.peacemjulecture.picture.PictureDialogFragment;
 
 public class PicturesFragment extends Fragment {
     private FragmentPicturesBinding binding = null;
+    private PictureViewModel viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class PicturesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        viewModel = new ViewModelProvider(requireActivity()).get(PictureViewModel.class);
         showDialog();
     }
 
@@ -34,29 +37,35 @@ public class PicturesFragment extends Fragment {
         binding.btnDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    PictureDialogFragment pictureDialogFragment = new PictureDialogFragment();
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("picture", getAnimalChecked());
-                    pictureDialogFragment.setArguments(bundle);
-                    pictureDialogFragment.show(getChildFragmentManager(), getTag());
-                } catch (IllegalArgumentException e) {
-                    Toast.makeText(requireContext(), "Select Animal", Toast.LENGTH_SHORT).show();
-                }
+                getAnimalChecked();
+                showPicture();
             }
         });
     }
 
-    private int getAnimalChecked() {
+    private void showPicture() {
+        try {
+            PictureDialogFragment pictureDialogFragment = new PictureDialogFragment();
+            pictureDialogFragment.show(getChildFragmentManager(), getTag());
+        } catch (IllegalArgumentException e) {
+            Toast.makeText(requireContext(), "Select Animal", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void getAnimalChecked() {
         switch (binding.rbGroup.getCheckedRadioButtonId()) {
             case R.id.rb_dog:
-                return R.drawable.dog;
+                viewModel.fetchAnimal(R.drawable.dog);
+                break;
             case R.id.rb_cat:
-                return R.drawable.cat;
+                viewModel.fetchAnimal(R.drawable.cat);
+                break;
             case R.id.rb_rabbit:
-                return R.drawable.rabbit;
+                viewModel.fetchAnimal(R.drawable.rabbit);
+                break;
             case R.id.rb_horse:
-                return R.drawable.horse;
+                viewModel.fetchAnimal(R.drawable.horse);
+                break;
             default:
                 throw new IllegalArgumentException("getCheckedButtonId Error");
         }

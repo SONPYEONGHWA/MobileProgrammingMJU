@@ -1,6 +1,8 @@
 package com.example.peacemjulecture.picture;
 
+import android.graphics.Picture;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import com.example.peacemjulecture.databinding.FragmentPictureDialogBinding;
 
 public class PictureDialogFragment extends DialogFragment {
     private FragmentPictureDialogBinding binding = null;
+    private PictureViewModel viewModel;
 
     @Override
     public void onResume() {
@@ -35,14 +38,16 @@ public class PictureDialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        viewModel = new ViewModelProvider(requireActivity()).get(PictureViewModel.class);
         closeDialog();
         getArgumentPicture();
 
     }
     private void getArgumentPicture() {
-        if (getArguments() != null) {
-            binding.ivAnimal.setBackgroundResource(getArguments().getInt("picture"));
-        }
+        binding.ivAnimal.setBackgroundResource(viewModel.getAnimal().getValue());
+//        if (getArguments() != null) {
+//            binding.ivAnimal.setBackgroundResource(getArguments().getInt("picture"));
+//        }
     }
 
     private void closeDialog() {
